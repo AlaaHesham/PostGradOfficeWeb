@@ -74,6 +74,9 @@
     <Content Include="AdminMainPage.aspx" />
     <Content Include="allSupervisors.aspx" />
     <Content Include="CountofOngoingTheses.aspx" />
+    <Content Include="Database\insertions.sql" />
+    <Content Include="Database\procedures.sql" />
+    <Content Include="Database\tables .sql" />
     <Content Include="Examinerpage.aspx" />
     <Content Include="ExaminerRegistration.aspx" />
     <Content Include="FillReport.aspx" />
@@ -322,6 +325,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
