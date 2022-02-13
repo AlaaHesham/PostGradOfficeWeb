@@ -15,7 +15,7 @@
             <asp:TextBox ID="Email" runat="server"></asp:TextBox>
             <br />
             Password<br />
-            <asp:TextBox ID="password" runat="server"></asp:TextBox>
+            <asp:TextBox ID="password" runat="server" type ="password"></asp:TextBox>
             <br />
             <br />
             <br />

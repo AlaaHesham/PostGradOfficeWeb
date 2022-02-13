@@ -17,7 +17,7 @@ namespace PostGradOfficeeeweb
         {
             String connStr = WebConfigurationManager.ConnectionStrings["PostGrad"].ToString();
 
-            SqlConnection conn = new SqlConnection(connStr);
+            SqlConnection conn = new(connStr);
 
             String Email1 = Email.Text;
             String pass = password.Text;
@@ -45,11 +45,10 @@ namespace PostGradOfficeeeweb
 
 
 
-
                 SqlCommand loginProc = new SqlCommand("userLogin", conn);
                 loginProc.CommandType = CommandType.StoredProcedure;
 
-                loginProc.Parameters.Add(new SqlParameter("@id", gotid));
+                loginProc.Parameters.Add(new SqlParameter("@id", gotid.Value));
                 loginProc.Parameters.Add(new SqlParameter("@password", pass));
 
 
@@ -61,28 +60,28 @@ namespace PostGradOfficeeeweb
                 conn.Open();
                 loginProc.ExecuteNonQuery();
                 conn.Close();
-                if (sucess.Value.ToString() == "1")
+                if (sucess.Value.ToString() == "True")
                 {
-                    Session["user"] = gotid;
+                    Session["user"] = gotid.Value;
                     //check user type 0-- > Student,1-- > Admin,2-- > Supervisor ,3-- > Examiner
                     if (type.Value.ToString() == "0")
                     {
-                        // Response.Redirect();  //aspx of Student
+                         Response.Redirect("StudentProfile.aspx");  //aspx of Student
                     }
 
                     if (type.Value.ToString() == "1")
                     {
-                        // Response.Redirect();  //aspx of Admin
+                        Response.Redirect("AdminMainPage.aspx");  //aspx of Admin
                     }
 
                     if (type.Value.ToString() == "2")
                     {
-                        // Response.Redirect();  //aspx of Supervisor
+                        Response.Redirect("Supervisor.aspx");  //aspx of Supervisor
                     }
 
                     if (type.Value.ToString() == "3")
                     {
-                        // Response.Redirect();  //aspx of Examiner 
+                        Response.Redirect("Examinerpage.aspx");  //aspx of Examiner 
                     }
 
 
@@ -92,7 +91,8 @@ namespace PostGradOfficeeeweb
                 else {
 
                     Response.Write("Invalid Email or Password");
-                
+                    //Response.Write(sucess.Value.ToString());
+
                 }
 
 

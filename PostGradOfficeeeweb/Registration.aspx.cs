@@ -18,7 +18,7 @@ namespace PostGradOfficeeeweb
 
             SqlConnection conn = new SqlConnection(connStr);
 
-            Response.Redirect("StudentRegisterForum");
+            Response.Redirect("StudentRegisterForum.aspx");
 
 
         }
